@@ -238,12 +238,28 @@
                 <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Informe Institucional - Vista Previa</title>
                 <style>
                     :root { --primary-color: #0c4a6e; --accent-color: #d97706; }
-                    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
-                    .report-document { width: 8.5in; min-height: 11in; margin: 20px 0; padding: 1.5cm; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); box-sizing: border-box; }
-                    .acta-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--primary-color); padding-bottom: 15px; margin-bottom: 25px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 20px 0; /* Espacio vertical para la previsualización */
+                        background-color: #f0f0f0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                        min-height: 100vh;
+                    }
+                    .report-document {
+                        width: 21.59cm;
+                        min-height: 27.94cm;
+                        padding: 1.5cm; /* Margen visual para la PREVISUALIZACIÓN */
+                        background: white;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                        box-sizing: border-box;
+                    }
+                    .acta-header { display: flex; align-items: center; border-bottom: 3px solid var(--primary-color); padding-bottom: 15px; margin-bottom: 25px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
                     .acta-header img { width: 90px; height: auto; }
                     .acta-header-text { flex-grow: 1; text-align: center; padding-left: 15px; }
-                    .acta-header-text h1 { font-size: 1.3rem; font-weight: bold; margin: 0; color: var(--primary-color); }
+                    .acta-header-text h1 { font-size: 1.1rem; font-weight: bold; margin: 0; color: var(--primary-color); }
                     .acta-header-text p { font-size: 0.8rem; margin: 2px 0; color: #444; }
                     .report-title { text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--primary-color); margin-bottom: 20px; }
                     .report-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
@@ -253,11 +269,29 @@
                     .report-separator th { border-top: 2px solid var(--accent-color); padding-top: 15px; }
                     .signature-line-print { border-bottom: 1px dashed #4b5563; height: 30px; }
                     .no-print { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
-                    @page { margin: 1.5cm; size: auto; }
+                    
+                    /* --- ESTILOS DE IMPRESIÓN --- */
+                    @page {
+                        size: auto;
+                        margin: 1.5cm; /* Margen para la IMPRESIÓN final */
+                    }
                     @media print {
-                        body { background: white; }
-                        .report-document { box-shadow: none !important; margin: 0 !important; padding: 0 !important; width: auto !important; min-height: auto !important; }
-                        .no-print { display: none !important; }
+                        body {
+                            background: none;
+                            padding: 0;
+                            margin: 0;
+                        }
+                        .report-document {
+                            box-shadow: none;
+                            margin: 0;
+                            padding: 0; /* El padding lo controla @page */
+                            width: 100%;
+                            min-height: unset;
+                            border: none;
+                        }
+                        .no-print {
+                            display: none !important;
+                        }
                     }
                 </style></head><body>
                 <div class="report-document">
