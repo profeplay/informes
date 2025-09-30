@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Institucional</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #0c4a6e;
+            --accent-color: #d97706;
+            --bg-light: #f9fafb;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: #1f2937;
+        }
+        #previewButton {
+            transition: all 0.2s;
+        }
+        #previewButton:hover {
+            box-shadow: 0 4px 15px rgba(12, 74, 110, 0.4);
+            transform: translateY(-1px);
+        }
+        /* Media Query para Impresión */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: white;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+    <!-- Carga de fuente Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Contenedor principal del formulario -->
+    <div class="max-w-4xl mx-auto p-6 lg:p-10 my-8 bg-white shadow-xl rounded-xl border border-gray-200">
+        
+        <h1 class="text-3xl font-extrabold text-center mb-8 pt-4 pb-2 text-white bg-blue-900 rounded-lg shadow-lg">
+            Informe Institucional
+        </h1>
+
+        <form id="reportForm" class="space-y-8">
+            
+            <div class="p-4 bg-gray-100 rounded-lg border-l-4 border-yellow-600">
+                <h2 class="text-xl font-semibold mb-2 text-blue-900">Datos Institucionales</h2>
+                <p class="text-sm"><span class="font-medium">Institución:</span> I. E. Nacional Agustín Codazzi – Sede Santa Rita</p>
+                <p class="text-sm"><span class="font-medium">NIT:</span> 892300220-8 | <span class="font-medium">DANE:</span> 120013000463</p>
+            </div>
+
+            <div class="space-y-4 border-t pt-6 border-blue-200">
+                <h2 class="text-2xl font-bold text-blue-900 flex items-center">
+                    <span class="mr-2">📅</span> Datos de Elaboración
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="reportDate" class="block text-sm font-medium text-gray-700">Fecha de Elaboración</label>
+                        <input type="date" id="reportDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border">
+                    </div>
+                    <div>
+                        <label for="reportTime" class="block text-sm font-medium text-gray-700">Hora de Elaboración</label>
+                        <input type="time" id="reportTime" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border">
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4 border-t pt-6 border-blue-200">
+                <h2 class="text-2xl font-bold text-blue-900 flex items-center">
+                    <span class="mr-2">📝</span> Identificación del Informe
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="reportArea" class="block text-sm font-medium text-gray-700">Área del Informe</label>
+                        <select id="reportArea" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border bg-white">
+                            <option value="">Seleccione el Área</option>
+                            <option value="Académico">Académico</option>
+                            <option value="Disciplinario">Disciplinario</option>
+                            <option value="Actividades">Actividades</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="campusLocation" class="block text-sm font-medium text-gray-700">Sede</label>
+                        <select id="campusLocation" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border bg-white">
+                            <option value="">Seleccione la Sede</option>
+                            <option value="Santa Rita">Santa Rita</option>
+                            <option value="Club de leones">Club de leones</option>
+                            <option value="Quince de noviembre">Quince de noviembre</option>
+                            <option value="El estadio">El estadio</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="activityName" class="block text-sm font-medium text-gray-700">Nombre de la Actividad / Asunto</label>
+                    <input type="text" id="activityName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="activityDate" class="block text-sm font-medium text-gray-700">Fecha de la Actividad</label>
+                        <input type="date" id="activityDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border">
+                    </div>
+                    <div>
+                        <label for="activityTime" class="block text-sm font-medium text-gray-700">Hora de la Actividad</label>
+                        <input type="time" id="activityTime" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border">
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4 border-t pt-6 border-blue-200">
+                <h2 class="text-2xl font-bold text-blue-900 flex items-center">
+                    <span class="mr-2">👨‍🏫</span> Docente y Grupos
+                </h2>
+                <div>
+                    <label for="teacherInCharge" class="block text-sm font-medium text-gray-700">Docente Encargado</label>
+                    <input type="text" id="teacherInCharge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border">
+                </div>
+                <div>
+                    <label for="teacherRole" class="block text-sm font-medium text-gray-700">Cargo del Docente</label>
+                    <select id="teacherRole" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border bg-white">
+                        <option value="">Seleccione el Cargo</option>
+                        <option value="Docente de Área">Docente de Área</option>
+                        <option value="Director de Grupo">Director de Grupo</option>
+                        <option value="Coordinador(a)">Coordinador(a)</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="studentGrade" class="block text-sm font-medium text-gray-700">Grado</label>
+                        <select id="studentGrade" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border bg-white">
+                            <option value="">Seleccione el Grado</option>
+                            <option value="Preescolar">Preescolar</option>
+                            <option value="Primero">Primero</option>
+                            <option value="Segundo">Segundo</option>
+                            <option value="Tercero">Tercero</option>
+                            <option value="Cuarto">Cuarto</option>
+                            <option value="Quinto">Quinto</option>
+                            <option value="Básica Primaria">Básica Primaria</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="studentGroup" class="block text-sm font-medium text-gray-700">Grupo</label>
+                        <select id="studentGroup" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border bg-white">
+                            <option value="">Seleccione el Grupo</option>
+                            <option value="Uno">Uno</option>
+                            <option value="Dos">Dos</option>
+                            <option value="Tres">Tres</option>
+                            <option value="Cuatro">Cuatro</option>
+                            <option value="Todos">Todos</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6 border-t pt-6 border-blue-200">
+                <h2 class="text-2xl font-bold text-blue-900 flex items-center">
+                    <span class="mr-2">📄</span> Contenido del Reporte
+                </h2>
+                <div>
+                    <label for="objectiveText" class="block text-sm font-medium text-gray-700">Objetivo</label>
+                    <textarea id="objectiveText" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border"></textarea>
+                </div>
+                <div>
+                    <label for="descriptionText" class="block text-sm font-medium text-gray-700">Descripción Detallada</label>
+                    <textarea id="descriptionText" rows="6" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border"></textarea>
+                </div>
+                <div>
+                    <label for="evaluationText" class="block text-sm font-medium text-gray-700">Evaluación y Resultados</label>
+                    <textarea id="evaluationText" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border"></textarea>
+                </div>
+            </div>
+
+            <div class="pt-8 flex justify-center">
+                <button type="button" id="previewButton" onclick="previewReport()" class="px-8 py-3 bg-blue-900 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 flex items-center">
+                    <span class="mr-2">📰</span> Previsualizar e Imprimir Informe
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function processContent(content) {
+            return content ? content.trim().replace(/\n/g, '<br>') : '&nbsp;';
+        }
+
+        function previewReport() {
+            const data = {
+                reportDate: document.getElementById('reportDate').value.trim(),
+                reportTime: document.getElementById('reportTime').value.trim(),
+                reportArea: document.getElementById('reportArea').value.trim(),
+                campusLocation: document.getElementById('campusLocation').value.trim(),
+                activityName: document.getElementById('activityName').value.trim(),
+                activityDate: document.getElementById('activityDate').value.trim(),
+                activityTime: document.getElementById('activityTime').value.trim(),
+                teacherInCharge: document.getElementById('teacherInCharge').value.trim(),
+                teacherRole: document.getElementById('teacherRole').value.trim(),
+                studentGrade: document.getElementById('studentGrade').value.trim(),
+                studentGroup: document.getElementById('studentGroup').value.trim(),
+                objectiveText: document.getElementById('objectiveText').value,
+                descriptionText: document.getElementById('descriptionText').value,
+                evaluationText: document.getElementById('evaluationText').value,
+            };
+
+            const formattedReportDate = data.reportDate ? new Date(data.reportDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+            const reportTimeText = data.reportTime || '';
+            const formattedActivityDate = data.activityDate ? new Date(data.activityDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+            const activityTimeText = data.activityTime || '';
+            const gradeGroup = [data.studentGrade, data.studentGroup].filter(Boolean).join(' / ') || '';
+
+            const dataTableHTML = `
+                <table class="report-table">
+                    <tbody>
+                        <tr class="report-separator"><th colspan="2">DATOS DE ELABORACIÓN</th></tr>
+                        <tr><td class="report-label-col">Fecha y Hora de Elaboración</td><td>${formattedReportDate}${reportTimeText ? ' - ' + reportTimeText : ''}</td></tr>
+                        <tr class="report-separator"><th colspan="2">IDENTIFICACIÓN DEL INFORME</th></tr>
+                        <tr><td class="report-label-col">Área del Informe</td><td>${data.reportArea || ''}</td></tr>
+                        <tr><td class="report-label-col">Sede</td><td>${data.campusLocation || ''}</td></tr>
+                        <tr><td class="report-label-col">Docente Encargado</td><td>${data.teacherInCharge || ''}</td></tr>
+                        <tr><td class="report-label-col">Cargo del Docente</td><td>${data.teacherRole || ''}</td></tr>
+                        <tr><td class="report-label-col">Grado / Grupo</td><td>${gradeGroup}</td></tr>
+                        <tr class="report-separator"><th colspan="2">DETALLES DE LA ACTIVIDAD / ASUNTO</th></tr>
+                        <tr><td class="report-label-col">Nombre de la Actividad / Asunto</td><td>${data.activityName || ''}</td></tr>
+                        <tr><td class="report-label-col">Fecha y Hora de la Actividad</td><td>${formattedActivityDate}${activityTimeText ? ' - ' + activityTimeText : ''}</td></tr>
+                        <tr class="report-separator"><th colspan="2">CONTENIDO DEL REPORTE</th></tr>
+                        <tr><td class="report-label-col">Objetivo</td><td>${processContent(data.objectiveText)}</td></tr>
+                        <tr><td class="report-label-col">Descripción Detallada</td><td>${processContent(data.descriptionText)}</td></tr>
+                        <tr><td class="report-label-col">Evaluación y Resultados</td><td>${processContent(data.evaluationText)}</td></tr>
+                    </tbody>
+                </table>`;
+            
+            const previewContent = `
+                <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Informe Institucional - Vista Previa</title>
+                <style>
+                    :root { --primary-color: #0c4a6e; --accent-color: #d97706; }
+                    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+                    .report-document { width: 8.5in; min-height: 11in; margin: 20px 0; padding: 1.5cm; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); box-sizing: border-box; }
+                    .acta-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--primary-color); padding-bottom: 15px; margin-bottom: 25px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+                    .acta-header img { width: 90px; height: auto; }
+                    .acta-header-text { flex-grow: 1; text-align: center; padding-left: 15px; }
+                    .acta-header-text h1 { font-size: 1.3rem; font-weight: bold; margin: 0; color: var(--primary-color); }
+                    .acta-header-text p { font-size: 0.8rem; margin: 2px 0; color: #444; }
+                    .report-title { text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--primary-color); margin-bottom: 20px; }
+                    .report-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+                    .report-table th, .report-table td { border: 1px solid #aaa; padding: 10px; text-align: left; vertical-align: top; }
+                    .report-table th { background-color: var(--primary-color); color: white; font-weight: bold; text-align: center; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+                    .report-label-col { white-space: nowrap; font-weight: bold; background-color: #f3f4f6; width: 1%; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+                    .report-separator th { border-top: 2px solid var(--accent-color); padding-top: 15px; }
+                    .signature-line-print { border-bottom: 1px dashed #4b5563; height: 30px; }
+                    .no-print { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+                    @page { margin: 1.5cm; size: auto; }
+                    @media print {
+                        body { background: white; }
+                        .report-document { box-shadow: none !important; margin: 0 !important; padding: 0 !important; width: auto !important; min-height: auto !important; }
+                        .no-print { display: none !important; }
+                    }
+                </style></head><body>
+                <div class="report-document">
+                    <div class="no-print">
+                        <button onclick="window.print()" style="padding: 10px 20px; background-color: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">🖨️ Imprimir Informe</button>
+                    </div>
+                    <div class="acta-header">
+                        <img src="https://ienacionalagustincodazzi.edu.co/wp-content/uploads/2021/08/escudo_2-183x193.png" alt="Escudo">
+                        <div class="acta-header-text">
+                            <h1>INSTITUCIÓN EDUCATIVA NACIONAL AGUSTÍN CODAZZI</h1>
+                            <p>Sede Santa Rita</p>
+                            <p>NIT: 892300220-8 | DANE: 120013000463</p>
+                            <p style="font-style: italic; color: var(--accent-color); margin-top: 5px; font-family: 'Times New Roman', serif; font-size: 0.95rem;">"Hacia la excelencia académica"</p>
+                        </div>
+                    </div>
+                    <div class="report-title">INFORME INSTITUCIONAL</div>
+                    ${dataTableHTML}
+                    <div style="margin-top: 1.8cm; display: flex; justify-content: center;">
+                        <div style="width: 40%; text-align: center;">
+                            <div class="signature-line-print"></div>
+                            <p style="font-weight: bold; font-size: 0.9rem; margin-top: 5px;">Docente Encargado(a)</p>
+                        </div>
+                    </div>
+                </div></body></html>`;
+
+            const newWindow = window.open('', '_blank');
+            if (newWindow) {
+                newWindow.document.write(previewContent);
+                newWindow.document.close();
+            } else {
+                alert("No se pudo abrir la ventana de previsualización. Revisa si tu navegador está bloqueando las ventanas emergentes.");
+            }
+        }
+    </script>
+</body>
+</html>
